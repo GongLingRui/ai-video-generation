@@ -1,0 +1,347 @@
+@import "tailwindcss";
+@import '@xyflow/react/dist/style.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #faf9f5;
+  --foreground: #3d3929;
+  --card: #faf9f5;
+  --card-foreground: #141413;
+  --popover: #ffffff;
+  --popover-foreground: #28261b;
+  --primary: 0 90% 50%;
+  --primary-foreground: #ffffff;
+  --secondary: #e9e6dc;
+  --secondary-foreground: #535146;
+  --muted: #ede9de;
+  --muted-foreground: #83827d;
+  --accent: #e9e6dc;
+  --accent-foreground: #28261b;
+  --destructive: #141413;
+  --destructive-foreground: #ffffff;
+  --border: #e2e1dc;
+  --input: #b4b2a7;
+  --ring: #e63946;
+  --chart-1: #e63946;
+  --chart-2: #9c87f5;
+  --chart-3: #ded8c4;
+  --chart-4: #dbd3f0;
+  --chart-5: #e63946;
+  --sidebar: #f5f4ee;
+  --sidebar-foreground: #3d3d3a;
+  --sidebar-primary: #e63946;
+  --sidebar-primary-foreground: #fbfbfb;
+  --sidebar-accent: #e9e6dc;
+  --sidebar-accent-foreground: #343434;
+  --sidebar-border: #ebebeb;
+  --sidebar-ring: #b5b5b5;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius: 1rem;
+  --shadow-2xs: 0 1px 2px rgba(0,0,0,0.02);
+  --shadow-xs: 0 1px 4px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  --shadow: 0 2px 8px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.03);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-xl: 0 12px 48px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-2xl: 0 16px 64px rgba(0,0,0,0.12), 0 6px 16px rgba(0,0,0,0.06);
+  --shadow-soft: 0 8px 40px -8px rgba(0,0,0,0.07);
+  --shadow-card: 0 2px 20px -4px rgba(0,0,0,0.05);
+  --shadow-card-hover: 0 12px 40px -8px rgba(230, 57, 70, 0.12);
+  --coral: 0 95% 55%;
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: #262624;
+  --foreground: #c3c0b6;
+  --card: #262624;
+  --card-foreground: #faf9f5;
+  --popover: #30302e;
+  --popover-foreground: #e5e5e2;
+  --primary: 0 85% 50%;
+  --primary-foreground: #ffffff;
+  --secondary: #faf9f5;
+  --secondary-foreground: #30302e;
+  --muted: #1b1b19;
+  --muted-foreground: #b7b5a9;
+  --accent: #1a1915;
+  --accent-foreground: #f5f4ee;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #363630;
+  --input: #52514a;
+  --ring: #ff6b7a;
+  --chart-1: #ff6b7a;
+  --chart-2: #9c87f5;
+  --chart-3: #1a1915;
+  --chart-4: #2f2b48;
+  --chart-5: #b4552d;
+  --sidebar: #1f1e1d;
+  --sidebar-foreground: #c3c0b6;
+  --sidebar-primary: #343434;
+  --sidebar-primary-foreground: #fbfbfb;
+  --sidebar-accent: #0f0f0e;
+  --sidebar-accent-foreground: #c3c0b6;
+  --sidebar-border: #ebebeb;
+  --sidebar-ring: #b5b5b5;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius: 1rem;
+  --shadow-2xs: 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-xs: 0 1px 4px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow: 0 2px 8px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.20), 0 2px 8px rgba(0,0,0,0.10);
+  --shadow-xl: 0 12px 48px rgba(0,0,0,0.24), 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-2xl: 0 16px 64px rgba(0,0,0,0.28), 0 6px 16px rgba(0,0,0,0.14);
+  --shadow-soft: 0 8px 40px -8px rgba(0,0,0,0.15);
+  --shadow-card: 0 2px 20px -4px rgba(0,0,0,0.08);
+  --shadow-card-hover: 0 12px 40px -8px rgba(230, 57, 70, 0.15);
+  --coral: 0 95% 60%;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  /* --primary / --coral are space-separated HSL components; must wrap in hsl() for valid colors */
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
+
+  --color-coral: hsl(var(--coral));
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 点阵背景 · 创作台 */
+.dot-grid-bg {
+  background-color: #eceef1;
+  background-image:
+    radial-gradient(ellipse 120% 70% at 50% -18%, rgba(255, 255, 255, 0.88), transparent 55%),
+    radial-gradient(circle at 1px 1px, rgba(130, 136, 148, 0.22) 1px, transparent 0);
+  background-size: 100% 100%, 22px 22px;
+  background-position: 0 0, 0 0;
+}
+
+.dark .dot-grid-bg {
+  background-color: #141416;
+  background-image:
+    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(45, 45, 52, 0.65), transparent 50%),
+    radial-gradient(circle at 1px 1px, rgba(82, 84, 92, 0.35) 1px, transparent 0);
+  background-size: 100% 100%, 22px 22px;
+}
+
+
+/* AI生成动效 */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* ========================
+   Vivid Design System
+   ======================== */
+
+/* Container utility */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Gradient utilities */
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--coral)));
+}
+
+.gradient-primary-reverse {
+  background: linear-gradient(135deg, hsl(var(--coral)), hsl(var(--primary)));
+}
+
+.gradient-subtle {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--coral) / 0.06));
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--coral)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-warm {
+  background: linear-gradient(180deg, var(--background), hsl(var(--primary) / 0.03));
+}
+
+/* Soft card */
+.soft-card {
+  @apply bg-card rounded-3xl;
+  box-shadow: var(--shadow-soft);
+}
+
+.soft-card-hover {
+  @apply transition-all duration-500 ease-out;
+}
+
+.soft-card-hover:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* Glass nav */
+.glass-nav {
+  @apply backdrop-blur-xl border-b bg-background/80;
+  background: hsl(var(--background) / 0.8);
+}
+
+/* Soft input */
+.input-soft {
+  @apply bg-input rounded-2xl border-0 px-5 py-3.5 text-foreground transition-all duration-300 outline-none;
+}
+.input-soft:focus {
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.25), 0 0 24px -4px hsl(var(--primary) / 0.1);
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--coral)));
+  @apply text-primary-foreground rounded-2xl font-semibold transition-all duration-300;
+  box-shadow: 0 4px 24px -4px hsl(var(--primary) / 0.35);
+}
+.btn-gradient:hover {
+  box-shadow: 0 8px 32px -4px hsl(var(--primary) / 0.45);
+  filter: brightness(1.05);
+}
+.btn-gradient:active {
+  transform: scale(0.97);
+}
+
+/* Glow effects */
+.glow-soft {
+  box-shadow: 0 0 50px -12px hsl(var(--primary) / 0.25);
+}
+
+.glow-lg {
+  box-shadow: 0 0 80px -15px hsl(var(--primary) / 0.2);
+}
+
+/* Section divider */
+.section-divider {
+  background: var(--gradient-warm);
+}
+
+/* Feature icon bg */
+.feature-icon-bg {
+  background: var(--gradient-subtle);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 10s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}

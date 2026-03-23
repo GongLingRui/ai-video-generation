@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Key 本地配置（浏览器）</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .code {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        label { display: block; margin-bottom: 8px; font-weight: 600; }
+        input[type="password"], input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>API Key 写入 localStorage</h1>
+
+        <div class="info">
+            <strong>说明：</strong><br>
+            静态页面<strong>无法</strong>读取你电脑上的 <code>.env.local</code>。请从该文件或控制台复制方舟 / 火山 API Key，粘贴到下方后保存。<br>
+            密钥只保存在本机浏览器，勿把真实 Key 写进仓库或发给他人。
+        </div>
+
+        <label for="key">Ark / 火山 API Key</label>
+        <input id="key" type="password" autocomplete="off" placeholder="粘贴密钥后点击保存" />
+
+        <div id="status"></div>
+
+        <button type="button" onclick="saveKey()">保存到 localStorage</button>
+        <button type="button" onclick="openProject()">打开项目</button>
+    </div>
+
+    <script>
+        function saveKey() {
+            const status = document.getElementById('status');
+            const raw = document.getElementById('key').value.trim();
+
+            if (!raw) {
+                status.innerHTML = '<div style="background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px;">请先粘贴 API Key</div>';
+                return;
+            }
+
+            localStorage.setItem('ark-api-key', raw);
+            const saved = localStorage.getItem('ark-api-key');
+
+            if (saved === raw) {
+                status.innerHTML = `
+                    <div class="success">
+                        <strong>已保存</strong><br><br>
+                        已写入 <code>localStorage['ark-api-key']</code>，请勿在截图或录屏中暴露该页面。
+                    </div>
+                `;
+                document.getElementById('key').value = '';
+            } else {
+                status.innerHTML = `
+                    <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px;">
+                        保存失败，请检查浏览器是否禁用 localStorage 后重试。
+                    </div>
+                `;
+            }
+        }
+
+        function openProject() {
+            window.open('http://localhost:3080', '_blank');
+        }
+    </script>
+</body>
+</html>
